@@ -31,6 +31,6 @@ def getRes():
 	content_2 =content_1.lstrip('[')
 	#print content_2
 	content_3=content_2.strip('"')
-	return content_3
+	print content_3
 
 print getRes()
