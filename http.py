@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 import time
 import urllib2
-import urllib
+#import urllib
 from sys import argv
  
 script,zh,tk = argv
@@ -19,6 +19,18 @@ def getRes():
 	req.add_header('User-Agent', "Mozilla/5.0")
 
 	response = urllib2.urlopen(req)
-	print response.read()
+	content= response.read()
+	#print content
+	content_0=content.split(',')
+	#print '\n'
+	#print content_0
+	content_1 = content_0[0]
+	#print '\n'
+	#print content_1
+	#print '\n'
+	content_2 =content_1.lstrip('[')
+	#print content_2
+	content_3=content_2.strip('"')
+	return content_3
 
 print getRes()
