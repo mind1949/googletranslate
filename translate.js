@@ -1,6 +1,6 @@
 // 得到TKK
 var exec = require('child_process').exec; 
-var cmdStr = 'getTKK.py';
+var cmdStr = 'python getTKK.py';
 exec(cmdStr, function(err,stdout,stderr){
     if(err) {
         console.log('get TKK is error' + stderr);
@@ -23,7 +23,7 @@ var gettrans=function(text){
 	//console.log(encodeURI(text))
 
 	var exec2 = require('child_process').exec; 
-	var cmdStr2 = 'http.py '+testenc+' '+res+' ';
+	var cmdStr2 = 'python http.py '+testenc+' '+res+' ';
 	//console.log('http.py '+testenc+' '+res)
 	exec2(cmdStr2, function(err,stdout,stderr){
 		if(err) {
