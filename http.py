@@ -31,6 +31,11 @@ def getRes():
 	content_2 =content_1.lstrip('[')
 	#print content_2
 	content_3=content_2.strip('"')
-	print content_3
+
+	f = open("test1.txt","a+")
+	f.write(content_3+"\n")
+	f.close
+
+	return content_3
 
 print getRes()

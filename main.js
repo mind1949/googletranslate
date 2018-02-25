@@ -22,6 +22,7 @@ if(typeof result == "string"){
 
 for(i in contents)
 {
-	trans.gettrans(contents[2])
+	trans.gettrans(contents[i])
 }
+
 
