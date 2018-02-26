@@ -14,22 +14,24 @@ var rf=require("fs");
 var tkk=rf.readFileSync("TKK","utf-8");  
 //console.log(tkk);
 
-
+// 根据TKK与text计算出tk,并进行翻译
 var gettrans=function(text){
+	//根据TKK与text计算出tk
 	var gettk= require('./gettk.js')
 	res=gettk.tk(text, tkk.toString())
-	//console.log(res)
+		//console.log(res)
 	var testenc = encodeURI(text)
-	//console.log(encodeURI(text))
+		//console.log(encodeURI(text))
 
+	//翻译
 	var exec2 = require('child_process').exec; 
 	var cmdStr2 = 'python http.py '+testenc+' '+res+' ';
 	//console.log('http.py '+testenc+' '+res)
 	exec2(cmdStr2, function(err,stdout,stderr){
 		if(err) {
-			//console.log('http is error' + stderr);
+			console.log('http is error' + stderr);
 		} else {
-			// 最终的结果
+			// 输出结果
 			console.log(stdout);
 		}
 	});
