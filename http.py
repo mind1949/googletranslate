@@ -20,22 +20,17 @@ def getRes():
 
 	response = urllib2.urlopen(req)
 	content= response.read()
-	#print content
 	content_0=content.split(',')
-	#print '\n'
-	#print content_0
-	content_1 = content_0[0]
-	#print '\n'
-	#print content_1
-	#print '\n'
-	content_2 =content_1.lstrip('[')
-	#print content_2
-	content_3=content_2.strip('"')
+	content_1=content_0[0].lstrip('[').strip('"')
 
+	# 将翻译结果存储在文件中
 	f = open("test1.txt","a+")
-	f.write(content_3+"\n")
+	f.write(content_1+"\n")
 	f.close
 
-	return content_3
+	# 对文件中的内容进行排序
+		
+	# 返回翻译出的结果
+	return content_1
 
 print getRes()
