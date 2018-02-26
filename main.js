@@ -17,5 +17,3 @@ for(let value of iterable)
 {
 	trans.gettrans(value)
 }
-
-
