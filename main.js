@@ -9,11 +9,14 @@ var contents=[s1,s2,s3,s4]
 // 导入translate
 var trans= require('./translate.js');
 
-//	循环翻译数组中的元素
+//	循环翻译数组中的元素,并返回为顺序数组
+Promise.all(contents.map(value => trans.gettrans(value)) ).then(function(datas) {
+	console.log(datas)
+	//将上述翻译的结果保存为本地文件
+	var exec = require("child_process").exec
+	exec('python savefile.py "'+datas+'" ')
+} )
 
-let iterable = contents
 
-for(let value of iterable)
-{
-	trans.gettrans(value)
-}
+
+

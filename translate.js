@@ -26,15 +26,19 @@ var gettrans=function(text){
 	//翻译
 	var exec2 = require('child_process').exec; 
 	var cmdStr2 = 'python http.py '+testenc+' '+res+' ';
-	//console.log('http.py '+testenc+' '+res)
-	exec2(cmdStr2, function(err,stdout,stderr){
-		if(err) {
-			console.log('http is error' + stderr);
-		} else {
-			// 输出结果
-			console.log(stdout);
-		}
-	});
+
+	return new Promise(function(resolve,reject)
+	{
+	
+		exec2(cmdStr2, function(err,stdout,stderr){
+			if(err) {
+				reject('http is error' + stderr);
+			} else {
+				// 输出结果
+				resolve(stdout);
+			}
+		});
+	})
 }
 
 

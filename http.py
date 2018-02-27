@@ -23,13 +23,6 @@ def getRes():
 	content_0=content.split(',')
 	content_1=content_0[0].lstrip('[').strip('"')
 
-	# 将翻译结果存储在文件中
-	f = open("test1.txt","a+")
-	f.write(content_1+"\n")
-	f.close
-
-	# 对文件中的内容进行排序
-		
 	# 返回翻译出的结果
 	return content_1
 
