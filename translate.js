@@ -19,13 +19,13 @@ var gettrans=function(text){
 	//根据TKK与text计算出tk
 	var gettk= require('./gettk.js')
 	res=gettk.tk(text, tkk.toString())
-		//console.log(res)
-	var testenc = encodeURI(text)
-		//console.log(encodeURI(text))
+	//console.log(res)
+	var testenc = encodeURIComponent(text)
+	//console.log(encodeURI(text))
 
 	//翻译
 	var exec2 = require('child_process').exec; 
-	var cmdStr2 = 'python http.py '+testenc+' '+res+' ';
+	var cmdStr2 = 'python http.py "'+testenc+'" '+res+' ';
 
 	return new Promise(function(resolve,reject)
 	{
@@ -36,6 +36,7 @@ var gettrans=function(text){
 			} else {
 				// 输出结果
 				resolve(stdout);
+
 			}
 		});
 	})

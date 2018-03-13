@@ -6,7 +6,7 @@ from sys import argv
  
 script,zh,tk = argv
 
-url='http://translate.google.cn/translate_a/single?client=t&sl=auto&tl=zh-CN&hl=en&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&ie=UTF-8&oe=UTF-8&source=bh&ssel=0&tsel=0&kc=1&tk='+ tk +'&q=' + zh
+url='http://translate.google.com/translate_a/single?client=t&sl=auto&tl=zh-CN&hl=en&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&ie=UTF-8&oe=UTF-8&source=bh&ssel=0&tsel=0&kc=1&tk='+ tk +'&q=' + zh
 def getRes():
 	#print 'chinese is :'+urllib.unquote(first)
 	
@@ -22,7 +22,11 @@ def getRes():
 	content_0=content.split(',')
 	content_1=content_0[0].lstrip('[').strip('"')
 
+	f = open('save_file.txt','a+')
+	f.write(content_1+'. \n')
+	f.close
 	# 返回翻译出的结果
 	return content_1
+
 
 print getRes()
